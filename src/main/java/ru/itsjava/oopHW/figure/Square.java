@@ -1,22 +1,16 @@
 package ru.itsjava.oopHW.figure;
 
 public class Square extends Figure {
-    private int side;
-    private int height;
+    private double side = 5.0;
 
     public Square() {
     }
 
-    public Square(int side, int height) {
-        this.side = side;
-        this.height = height;
-    }
-
-    public double area(int side, int height) {
+    public double area() {
         return side * side;
     }
 
-    public int perimeter(int side, int height) {
+    public double perimeter() {
         return side * 4;
     }
 

@@ -1,22 +1,17 @@
 package ru.itsjava.oopHW.figure;
 
-public class Triangle extends ru.itsjava.oopHW.figure.Figure {
-    private int side;
-    private int height;
+public class Triangle extends Figure {
+    private double side = 8.0;
+    private double height = 6.0;
 
     public Triangle() {
     }
 
-    public Triangle(int side, int height) {
-        this.side = side;
-        this.height = height;
-    }
-
-    public double area(int side, int height) {
+    public double area() {
         return 0.5 * side * height;
     }
 
-    public int perimeter(int side, int height) {
+    public double perimeter() {
         return side * 3;
     }
 

@@ -1,22 +1,17 @@
 package ru.itsjava.oopHW.figure;
 
-public class Rectangle extends ru.itsjava.oopHW.figure.Figure {
-    private int side;
-    private int height;
+public class Rectangle extends Figure {
+    private double side = 5;
+    private double height = 4;
 
     public Rectangle() {
     }
 
-    public Rectangle(int side, int height) {
-        this.side = side;
-        this.height = height;
-    }
-
-    public double area(int side, int height) {
+    public double area() {
         return side * height;
     }
 
-    public int perimeter(int side, int height) {
+    public double perimeter() {
         return (side + height) * 2;
     }
 
