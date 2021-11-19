@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public class Circle extends Figure {
-    private double radius = 5.0;
+    private double radius;
 
     public Circle(){
     }
