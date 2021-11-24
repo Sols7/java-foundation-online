@@ -98,17 +98,17 @@ public class ListBook {
         }
         System.out.println();
 
-//        System.out.println();
-//        System.out.println("Пропустить первые 2 книги, которые равные \"Java\"");
-//        int bookCount = 0;
-//        for (int i = 0; i < bookList.size(); i++) {
-//            if (bookList.get(i).getName().equals("Java") && bookCount < 2) {
-//                bookCount++;
-//            } else {
-//                System.out.print(bookList.get(i));
-//            }
-//        }
-//        System.out.println();
+        System.out.println();
+        System.out.println("Пропустить первые 2 книги, которые равные \"Java\"");
+        int bookCount = 0;
+        for (int i = 0; i < bookList.size(); i++) {
+            if (bookList.get(i).getName().equals("Java") && bookCount < 2) {
+                bookCount++;
+            } else {
+                System.out.print(bookList.get(i));
+            }
+        }
+        System.out.println();
 
         System.out.print("Первая книга, длина автора которого делится на 3");
         for (Book book : bookList) {
