@@ -41,7 +41,22 @@ public class MyArrayList {
     }
 
     public boolean remove(Object o) {
-        return false;
+        int delIndex = -1;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != null && array[i].equals(o)) {
+                delIndex = i;
+                break;
+            }
+        }
+        if (array.length - 1 - delIndex >= 0) {
+            System.arraycopy(array, delIndex + 1, array, delIndex, array.length - 1 - delIndex);
+        }
+        if (delIndex == -1) {
+            return false;
+        } else {
+            realSize--;
+            return true;
+        }
     }
 
     public void clear() {
@@ -52,27 +67,74 @@ public class MyArrayList {
     }
 
     public Object get(int index) {
-        return null;
+        checkIndex(index);
+        return array[index];
     }
 
     public Object set(int index, Object element) {
-        return null;
+        checkIndex(index);
+        return array[index] = element;
     }
 
     public void add(int index, Object element) {
-
+        checkIndex(index);
+        realSize++;
+        if (realSize - index >= 0) {
+            System.arraycopy(array, index, array, index + 1, realSize - index);
+        }
+        array[index] = element;
     }
 
     public Object remove(int index) {
-        return null;
+        checkIndex(index);
+
+        Object resElement = array[index];
+        if (array.length - 1 - index >= 0) {
+            System.arraycopy(array, index + 1, array, index, array.length - 1 - index);
+        }
+        realSize--;
+        return resElement;
+    }
+
+    private void checkIndex(int index) {
+        if (!isCorrectIndex(index)) {
+            throw new ArrayIndexOutOfBoundsException("Некорректный индекс");
+        }
+    }
+
+    private boolean isCorrectIndex(int index) {
+        if ((index > -1) && (index < realSize)) {
+            return true;
+        }
+        return false;
     }
 
     public int indexOf(Object o) {
-        return 0;
+        int index = -1;
+        for (int i = 0; i < realSize; i++) {
+            if (array[i].equals(o)) {
+                index = i;
+                break;
+            }
+        }
+        if (!isCorrectIndex(index)) {
+            throw new ArrayIndexOutOfBoundsException("Элемент " + o + " не найден");
+        }
+        return index;
     }
 
     public int lastIndexOf(Object o) {
-        return 0;
+        int lastIndex = -1;
+        for (int i = realSize - 1; i >= 0; i--) {
+            if (array[i].equals(o)) {
+                lastIndex = i;
+                break;
+            }
+        }
+        if (!isCorrectIndex(lastIndex)) {
+            throw new ArrayIndexOutOfBoundsException("Элемент " + o + " не найден");
+        }
+        return lastIndex;
     }
 
     @Override
