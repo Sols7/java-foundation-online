@@ -40,6 +40,7 @@ public class MyArrayListTest {
         assertEquals(0, list.size());
         list.add("Element1");
         assertEquals(1, list.size());
+        assertTrue(list.contains("Element1"));
     }
 
     @DisplayName(" корректно выполнять метод remove")
@@ -49,6 +50,7 @@ public class MyArrayListTest {
         assertEquals(1, list.size());
         list.remove("Element1");
         assertEquals(0, list.size());
+        assertFalse(list.contains("Element1"));
     }
 
     @DisplayName(" корректно выполнять метод clear")
@@ -82,6 +84,7 @@ public class MyArrayListTest {
         list.add("Element2");
         list.add(1, "newElement");
         assertEquals("newElement", list.get(1));
+        assertEquals(3, list.size());
     }
 
     @DisplayName(" корректно выполнять метод remove по индексу")
@@ -93,6 +96,7 @@ public class MyArrayListTest {
         list.remove(1);
 //        assertEquals("Element3", list.get(1));
         assertFalse(list.contains("Element2"));
+        assertEquals(2, list.size());
     }
 
     @DisplayName(" корректно выполнять метод indexOf")
