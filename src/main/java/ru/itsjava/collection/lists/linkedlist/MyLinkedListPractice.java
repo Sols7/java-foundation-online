@@ -16,12 +16,27 @@ public class MyLinkedListPractice {
         list.add("Строка_3");
         System.out.println("list = " + list);
 
-        System.out.println("list.size() = " + list.size());
+//        System.out.println("list.size() = " + list.size());
+//
+//        System.out.println("list.isEmpty() = " + list.isEmpty());
+//
+//        System.out.println("list.contains(\"Строка_2\") = " + list.contains("Строка_2"));
+//        System.out.println("list.contains(\"Строка_3\") = " + list.contains("Строка_3"));
+//        System.out.println("list.contains(\"Строка_5\") = " + list.contains("Строка_5"));
 
-        System.out.println("list.isEmpty() = " + list.isEmpty());
+//        list.remove(2);
+//        System.out.println("list = " + list);
 
-        System.out.println("list.contains(\"Строка_2\") = " + list.contains("Строка_2"));
-        System.out.println("list.contains(\"Строка_3\") = " + list.contains("Строка_3"));
-        System.out.println("list.contains(\"Строка_5\") = " + list.contains("Строка_5"));
+//        list.clear();
+//        System.out.println("list = " + list);
+//        System.out.println("list.isEmpty() = " + list.isEmpty());
+
+//        System.out.println("list.get(0) = " + list.get(0));
+//        System.out.println("list.get(1) = " + list.get(1));
+//        System.out.println("list.get(2) = " + list.get(2));
+
+        list.set(2, "СТРОКА");
+        System.out.println("list = " + list);
+
     }
 }
