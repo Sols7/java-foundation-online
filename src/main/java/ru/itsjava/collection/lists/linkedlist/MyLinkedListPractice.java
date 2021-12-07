@@ -27,16 +27,16 @@ public class MyLinkedListPractice {
 //        list.remove(2);
 //        System.out.println("list = " + list);
 
-//        list.clear();
-//        System.out.println("list = " + list);
-//        System.out.println("list.isEmpty() = " + list.isEmpty());
+        list.clear();
+        System.out.println("list = " + list);
+        System.out.println("list.isEmpty() = " + list.isEmpty());
 
 //        System.out.println("list.get(0) = " + list.get(0));
 //        System.out.println("list.get(1) = " + list.get(1));
 //        System.out.println("list.get(2) = " + list.get(2));
 
-        list.set(2, "СТРОКА");
-        System.out.println("list = " + list);
+//        list.set(2, "СТРОКА");
+//        System.out.println("list = " + list);
 
     }
 }
