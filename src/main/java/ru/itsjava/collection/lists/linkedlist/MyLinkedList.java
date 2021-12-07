@@ -46,7 +46,27 @@ public class MyLinkedList {
     }
 
     public boolean remove(Object o) {
-        return false;
+        if (head == null) return false;                     //возвращаем false если список пустой
+        if (head.getValue().equals(o)) {                    //сравниваем head с удаляемым объектом
+            head = head.getNext();                          //меняем head на следующий элемент
+            return true;                                    //возвращаем true
+        }
+        if (head.getNext() == null) return false;           //возвращаем false если после head нет элемента
+        Node curNode = head;                                //определяе элемент, который будем удалять
+        Node prevNode = head;                               //определем предидущий элемен для замены ссылки
+
+        while ((curNode = curNode.getNext()) != null) {     //бежим по списку для поиска удаляемого элемента
+            if (curNode.getValue().equals(o)) {             //проверяем на равенство текущий элемент с удаляемым
+                break;                                      //выходим из цикла - элемент для удаления определен
+            }
+            prevNode = prevNode.getNext();                  //переопределяем prevNode
+        }
+
+        if (curNode == null) return false;                  //возвращаем false если curNode равен null
+
+        prevNode.setNext(curNode.getNext());                //переопрелеляем ссылку предидущего элемента на следующий после удаляемого
+        curNode.setNext(null);                              //удаляем ссылку у текущего элемента
+        return true;                                        //возвращаем true
     }
 
     public void clear() {
@@ -103,6 +123,7 @@ public class MyLinkedList {
             }
             prevNode = prevNode.getNext();                  //переопределяем prevNode
         }
+        if (curNode == null) return null;
         Object resValue = curNode.getValue();               //создаем объект, чтобы вернуть значение
         if (curNode.getNext() == null) {                    //проверяем является ли удаляемый элемен последим в списке
             prevNode.setNext(null);                         //удаляем ссылку у предидущего элемента
@@ -127,11 +148,38 @@ public class MyLinkedList {
     }
 
     public int indexOf(Object o) {
-        return 0;
+        Node curNode = head;
+        int index = -1;
+        int count = 0;
+        while (curNode != null) {
+            if (curNode.getValue().equals(o)) {
+                index = count;
+                break;
+            }
+            curNode = curNode.getNext();
+            count++;
+        }
+        if (!isCorrectIndex(index)) {
+            throw new ArrayIndexOutOfBoundsException("Элемент " + o + " не найден");
+        }
+        return index;
     }
 
     public int lastIndexOf(Object o) {
-        return 0;
+        Node curNode = head;
+        int index = -1;
+        int count = 0;
+        while (curNode != null) {
+            if (curNode.getValue().equals(o)) {
+                index = count;
+            }
+            curNode = curNode.getNext();
+            count++;
+        }
+        if (!isCorrectIndex(index)) {
+            throw new ArrayIndexOutOfBoundsException("Элемент " + o + " не найден");
+        }
+        return index;
     }
 
     @Override
