@@ -77,6 +77,7 @@ public class MyLinkedListTest {
     public void shouldHaveCorrectMethodSet() {
         list.add("Строка_1");
         assertEquals("Строка_SET", list.set(0, "Строка_SET"));
+        assertTrue(list.contains("Строка_SET"));
     }
 
     @DisplayName(" корректно выполнять метод remove по индексу")
