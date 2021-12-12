@@ -91,5 +91,74 @@ public class MapPractice {
         for (Map.Entry<Man, Fruit> pair : buyers.entrySet()) {
             System.out.println(pair.getKey() + ": " + pair.getValue());
         }
+
+        //Обход коллекций
+
+        System.out.print("количество ключей длина которых больше 5: ");
+        int count = 0;
+        for (Map.Entry<Man, Fruit> pair : buyers.entrySet()) {
+            if (pair.getKey().getName().length() > 5) {
+                count++;
+            }
+        }
+        System.out.println(count);
+
+        System.out.print("количество элементов, которые равны \"Lemon\": ");
+        int countFruit = 0;
+        for (Map.Entry<Man, Fruit> pair : buyers.entrySet()) {
+            if (pair.getValue().getName().equalsIgnoreCase("Lemon")) {
+                countFruit++;
+            }
+        }
+        System.out.println(countFruit);
+
+        System.out.println("Пропустить 2 элемента, значения которых Orange, все остальные вывести: ");
+        int countOrange = 0;
+        for (Map.Entry<Man, Fruit> pair : buyers.entrySet()) {
+            if (pair.getValue().getName().equalsIgnoreCase("Orange") && countOrange < 2) {
+                countOrange++;
+            } else {
+                System.out.println(pair.getValue());
+            }
+        }
+
+        System.out.println("Вывести все кроме 2 элементов, ключи которых начинаются на C: ");
+        int countElemBeginC = 0;
+        for (Map.Entry<Man, Fruit> pair : buyers.entrySet()) {
+            if (pair.getKey().getName().startsWith("С") && countElemBeginC < 2) {
+                countElemBeginC++;
+            } else {
+                System.out.println(pair.getKey());
+            }
+        }
+
+        System.out.println("Возвращаем элемент значение которого Orange или OrAnge или ORANGE: ");
+        for (Map.Entry<Man, Fruit> pair : buyers.entrySet()) {
+            if (pair.getValue().getName().equals("Orange") || pair.getValue().getName().equals("OrAnge") ||
+                    pair.getValue().getName().equals("ORANGE")) {
+                System.out.println(pair.getValue());
+                break;
+            }
+        }
+
+        System.out.println("Возвращаем все элементы в другую карту, которые являются Apple или Lemon: ");
+        for (Map.Entry<Man, Fruit> pair : buyers.entrySet()) {
+            if (pair.getValue().getName().equals("Apple") || pair.getValue().getName().equals("Lemon")) {
+                newBuyers.put(pair.getKey(), pair.getValue());
+            }
+        }
+        for (Map.Entry<Man, Fruit> pair : newBuyers.entrySet()) {
+            System.out.println(pair.getKey() + ": " + pair.getValue());
+        }
+
+        System.out.print("средний вес всех фруктов: ");
+        int countWeight = 0;
+        double sumWeight = 0.0;
+        for (Map.Entry<Man, Fruit> pair : buyers.entrySet()) {
+            sumWeight += pair.getValue().getWeight();
+            countWeight++;
+        }
+        System.out.println(sumWeight/countWeight + " кг");
+
     }
 }
