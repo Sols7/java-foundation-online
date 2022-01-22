@@ -15,14 +15,14 @@ public class MyFavoriteTest {
     @Before
     public void beforeMethod(){}
 
-    @DisplayName
+    @DisplayName("Мой тест 1")
     @Test
     public void test1(){}
 
     @Test
     public void test2(){}
 
-    @DisplayName
+    @DisplayName("Мой тест 3")
     @Test
     public void test3(){
         throw new RuntimeException();

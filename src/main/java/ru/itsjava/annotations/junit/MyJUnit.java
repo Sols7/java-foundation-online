@@ -32,8 +32,9 @@ public class MyJUnit {
                 System.out.println(beforeMethod.getName());
             }
             if (method.isAnnotationPresent(DisplayName.class)){
-                String nameTest = method.getName();
-                System.out.println(nameTest);
+                String displayNameTest = method.getAnnotation(DisplayName.class).value();
+                System.out.println(displayNameTest);
+//                System.out.println(method.getAnnotation(DisplayName.class).value());
             }
             try {
                 method.invoke(objTestClass);
